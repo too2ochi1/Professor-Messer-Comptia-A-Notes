@@ -1,0 +1,320 @@
+as we've discussed in a previous video
+the port numbers used by TCP and UDP can
+be very important when trying to
+communicate to a service so it's useful
+to know what those port numbers are if
+you're trying to troubleshoot any type
+of communications issue we might also
+need to know these port numbers if we're
+performing some type of firewall
+configuration our firewalls often use
+TCP and UDP port numbers as one of the
+criteria that it uses to allow or to
+block Lo Network traffic as you go
+through this video you'll find there are
+a number of port numbers that you're
+required to know as part of your A+
+studies you'll find that memorizing
+these port numbers can sometimes feel a
+bit tedious but after you start using
+these applications configuring firewalls
+and troubleshooting network
+communication you'll find that most of
+these port numbers become second nature
+for the purposes of your A+ studies make
+sure that you understand not only the
+port number and the protocol associated
+with it but that you understand why that
+particular protocol is important and how
+it's used on the
+network the first port numbers we'll
+look at are port numbers TCP Port 20 and
+TCP Port 21 these two port numbers are
+commonly associated with FTP or the file
+transfer protocol FTP is a generic file
+transfer protocol that could be used by
+many different operating systems to
+transfer information from one device to
+another and different types of FTP may
+use one or both of these prot protocols
+TCP Port 20 is often used as the active
+data transfer and Port 21 is often used
+as the administration or control Port
+the FTP protocol often requires you to
+have some type of authentication into
+this system so it may ask for a username
+a password or some other type of
+authentication Factor FTP can also be
+configured with an anonymous or generic
+login so that anyone can log in
+regardless of what the username or
+password might be FTP is also a
+full-featured protocol that not only can
+transfer a file but can list the files
+available in a particular directory we
+can add delete change the file name and
+perform other Administration functions
+as
+well as part of our tasks as server
+administrators or network administrators
+we are often required to connect to our
+Remote device and make configuration
+changes at the command line to be able
+to do this securely across the network
+we need to use a protocol that can
+encrypt all of this data as we're
+sending it from one side to the other
+the most common protocol used for this
+function is SSH or secure shell it
+provides an encrypted communication link
+over TCP Port 22 this is very similar to
+the old style tnet protocol but tnet is
+one that we commonly no longer see in
+use because it does not provide any type
+of encryption if you're communicating at
+the command line to a server you should
+always be using SSH and you'll find that
+it almost always is using TCP Port
+22 however you may find that there is a
+system in your network that is very old
+that does not support SSH and the only
+way to administer that device at the
+command line is using the older tnet
+protocol telnet stands for
+telecommunications Network and it
+commonly communicates over TCP Port 23
+visually and functionally this works
+identical to SSH you have a command line
+you can log into a device with your
+username and password you can administer
+that device remotely but the major
+difference is that all of the
+communication used for tnet is in the
+clear there's no encryption used for
+tnet and that's why most organizations
+will prevent anyone from using the tnet
+protocol and instead recommend that you
+use SSH to perform this
+communication email continues to be one
+of the most popular forms of
+communication across our networks and to
+be able to facilitate that communication
+we need some type of protocol that can
+send mail from one server to another
+that protocol is the simple mail
+transfer protocol or SMTP SMTP commonly
+uses TCP Port 25 to be able to send
+these email messages from one email
+server to another you may also find that
+some devices are configured to send
+information to the email server
+initially also using this SMTP protocol
+so not only are you configuring this on
+your mail server you may also o find
+that you're configuring SMTP with the
+appropriate port number on your local
+device to be able to receive email
+messages we would commonly use protocols
+such as IMAP or pop 3 and we'll talk
+about those protocols and their
+Associated port numbers later in this
+video in these videos so far we've
+talked a lot about devices able to
+communicate with each other using IP or
+Internet Protocol the Internet Protocol
+address is one very similar to what you
+would see here one 62.1 159 2461 164 but
+when we're typing things into our
+browser we're not typing in a bunch of
+numbers we're typing in the name of a
+website such as
+www.professormesser.com
+in order to translate this fully
+qualified domain name into a usable IP
+address for network communication we
+need to perform a translation using the
+domain name system or DNS DNS commonly
+uses UDP Port 53
+as you can imagine DNS is a very popular
+and important service because we almost
+never memorize IP addresses to be able
+to communicate to these devices but it's
+very common to remember the fully
+qualified domain name for that reason
+it's very common to have multiple DNS
+servers for redundancy so that we are
+always able to resolve the fully
+qualified domain name to the appropriate
+IP
+address the computer on your network was
+probably not manually configured with a
+set of IP addresses subnet masks default
+gateways or DNS servers this was done
+automatically when you turn your
+computer on using the dynamic host
+configuration protocol or
+DHCP DHCP happens automatically behind
+the scenes and it makes the entire
+process of configuring your system with
+these addresses completely seamless DHCP
+commonly uses UDP Port 67 and UDP Port
+68 on your network is a DHCP service
+that may be on a standalone server or
+Appliance or may be integrated into a
+small office home office wireless router
+that you might have at home on this
+server is a pool of available IP
+addresses and when a device connects to
+the network it requests an IP address
+and configuration parameters from that
+pool when a device starts up it receives
+that IP address and it leases that IP
+address for a certain amount of time
+when that lease is up it can choose to
+renew the lease or give the IP address
+back and put it into the pool for
+someone else to use system
+administrators can also use DHCP to
+manually configure IP addresses that
+will always be assigned to particular
+devices so if you have a printer or
+server that you would like to always
+have the same IP address you can reserve
+that IP address in your DHCP server and
+it will be automatically assigned with
+the same IP address every time that
+printer or server starts
+up you're probably watching this video
+in a browser and to be able to perform
+that functionality you're probably using
+HTT TP or https this is the hypertext
+transfer protocol or hypertext transfer
+protocol secure the standard form of
+HTTP sends all of the HTTP data over a
+non-encrypted or in the clear
+communication and it often uses TCP Port
+80 if you see any traffic using TCP Port
+443 it's probably using the secure
+version of HTTP which means that all of
+that web communication inside of that
+packet will be encrypted a large
+percentage of the devices you
+communicate to in your browser are
+probably going to use https these days
+but you'll still find a number of web
+services that are not using the
+encrypted version and instead are
+sending all of their traffic via TCP
+Port 80 and the HTTP
+protocol if you're using an email client
+on your computer or your mobile device
+you may be receiving emails using a
+number of different protocols two of the
+more popular Protocols are POP 3 and
+IMAP POP 3 is the post office protocol
+version three and it commonly uses TCP
+Port 110 to be able to transfer data
+down to your computer a newer and
+somewhat more functional protocol for
+receiving email is IMAP 4 or the
+internet message access protocol version
+4 IMAP commonly uses TCP Port 143 IMAP
+provides a number of additional features
+not available in pop 3 such as the
+management of the inbox from multiple
+clients you're able to make make folders
+and transfer emails into those folders
+and all of those updates will be
+synchronized across all of your
+different systems and all of those
+updates will be synchronized across all
+of your different email
+clients if you're using Microsoft
+Windows there's a process for
+transferring data within windows that
+uses a protocol named server message
+block or SMB you may also see this
+referred to as the common internet file
+system or cifs not only is this used for
+file trans transfers it's used to send
+information to printer cues and for
+other processes where Windows needs to
+communicate information between
+different Windows devices older Windows
+devices used an additional protocol
+inside of tcpip called netbios this net
+bios protocol used two primary port
+numbers to be able to communicate UDP
+Port 137 used a net bios name service
+which is very similar to the DNS name
+service that we talked about earlier and
+to be able to set up sessions to
+transfer files it uses TCP Port 139 on
+most modern versions of Windows you'll
+find Direct connectivity between IP
+addresses that don't use the net bios
+protocol we refer to that as direct
+communication or net bios less
+communication and it often uses TCP Port
+445 most organizations will have a
+central database that contains all of
+the important information about the
+devices users and and important
+resources available on their Network
+this is usually a directory of services
+or a database that contains all of this
+information and to be able to access
+this database we use a standard set of
+protocols one of these protocols is ldap
+or ldaps this stands for the lightweight
+directory access protocol or the
+lightweight directory access protocol
+secure ldap commonly uses TCP port 389
+this directory is usually separated into
+different categories such as an
+organization an organizational unit or a
+common name for example at mess Studios
+we might have a production
+organizational unit a support
+organizational unit and an engineering
+organizational unit and of course within
+those there may be individuals using a
+common name such as Sam or Daniel and we
+might also have a database called Tech
+docs using ldap we can refer to this
+database to find where these components
+might be and in some cases even provide
+a additional details such as
+authentication for any individual users
+a very common use of ldap is Microsoft's
+active directory infrastructure where
+that database is able to be referenced
+using the ldap
+protocol if you are troubleshooting
+technology then you're probably very
+familiar with remote control access of a
+separate machine these days we have
+users around the world and it's not very
+practical for you to visit every single
+one of those users directly to be able
+to solve problems s on their computer in
+those cases we'll probably use some type
+of remote access protocol such as RDP or
+remote desktop protocol this allows you
+to view and share the desktop on a
+Remote device using TCP Port
+3389 this is primarily used to access
+Windows devices and to be able to
+control those windows devices across the
+network you can usually do this from a
+Windows device itself or from many other
+operating systems as well you can use
+RDP to control an entire computer or to
+Simply run a single application on that
+remote computer and although RDP is
+commonly associated with connecting to
+Windows devices there are also many RDP
+clients that would allow you to connect
+to that Windows computer from Mac OS
+Linux Unix iPhone and other operating
+systems as well

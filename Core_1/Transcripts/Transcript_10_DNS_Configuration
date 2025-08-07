@@ -1,0 +1,445 @@
+DNS stands for the domain name system
+and this is one of the most critical
+resources and services available on our
+networks that's because we use DNS to be
+able to provide IP addresses when all we
+remember is a fully qualified domain
+name for example you could type into
+your browser
+www.professormesser.com
+and behind the scenes a DNS resolution
+occurs that translates the name www.
+professor
+into the IP address that is associated
+with that particular web server address
+this means that we don't have to
+remember any specific IP addresses all
+we have to remember is the name of the
+server that we want to communicate to
+behind the scenes DNS will make sure
+that we're able to connect to that IP
+address DNS provides this resolution and
+many other features as well some of
+which we'll learn about in this video
+today this DNS database is a hierarchy
+that allows us to find the IP address of
+any fully qualified domain name on the
+worldwide internet we refer to DNS as a
+distributed database because this is a
+database that is scattered throughout
+the entire internet portions of this
+database are contained on different
+servers located on different networks
+around the world if we were to drill
+down on the specifics of the DNS
+standard you would see that there were
+13 separate root server clusters this
+cluster is more than simply 13 separate
+servers in reality there are over a
+thousand servers making up that root
+server cluster that root cluster allows
+us to then communicate with DNS servers
+that are handling top level domains
+these generic top level domains or gtlds
+are the ones that you might recognize
+a.com a.org a.net and so on you might
+also see these top level domains
+separated by country there are about 275
+country codes for example the United
+States is the US domain Canada isca the
+United kingdoms. and so on when we say
+that the DNS database is a hierarchy
+this is a visual representation of what
+we mean underneath the top level domains
+is a domain name such as
+professormesser.com and you'll notice
+there's the doom and just under the do
+com is theprofessor Messer you can
+continue to add layers to this hierarchy
+for example our web server at Professor
+Messer is
+www.professormesser.com
+we might also a mail.
+professormesser.com and so on and of
+course you could have individual servers
+and devices underneath those domain
+names as well so you could have a katy.
+east. professormesser.com or a judy.
+west. professormesser.com this allows
+you to organize your DNS infrastructure
+into a way that makes sense for your
+organization and have it accessible to
+anyone in the world if you wanted to get
+some insight into how a particular DNS
+server might be configured you might
+want to use different tools to be able
+to access that database one of these
+tools is the Dig command dig is a common
+command on Linux and Mac OS and some
+versions of Windows also have a dig
+version that you could install dig
+allows you to perform a query against a
+DNS server so if we dig
+www.professormesser.com we get the
+results that are on this page it shows
+us what commands we are using gives us
+exactly what question is being asked of
+that particular DNS server and then
+provides answers to the question that
+was asked in this case making a query
+for www.professorpuzzle.com
+remaining IP addresses to communicate to
+our web server if you're on Windows you
+can use the NS lookup command to provide
+the same information for example
+nslookup of professormesser.com will
+return the same answers with the same
+three IP
+addresses when we make that query to the
+DNS server we are returned information
+that is contained within the records of
+that DNS database those records are
+referred to as resource records or RR
+those resource records contain
+information about the IP addresses we'd
+like to query their certificate
+information email details host Alias
+names and much more this is one of the
+reasons that we often say that a DNS
+configuration is not something you
+should toy around with if you're not
+familiar with what you're doing one
+mistake made to the database inside this
+DNS server could cause one or more of
+your devices to suddenly become
+unavailable to anyone else on the
+internet if you are going to make a
+change to a DNS server just keep in mind
+that you should always a backup and a
+way to easily revert to that backup if
+you run into any
+problems if you manage your own DNS
+server then this will probably look
+familiar this is a configuration of a
+DNS server you can see there is an SOA
+record at the top an MX record some a
+records along with that and C Name
+Records also at the bottom in this video
+we'll go through each of these different
+record types so that you'll be familiar
+with why we would add that information
+into our DNS server config my DNS Server
+doesn't provide me with a way to look at
+the raw text configuration file but
+there is a web-based front end that I
+can view so this is the same information
+but it's from a web front end for my DNS
+server from this webbased front end I
+could add new records I can modify the
+records that are already here or make
+any changes that I need to in my DNS
+configuration one of the most common
+records in a DNS server is an a record
+you might also see these as a quad a
+record or
+AAAA record these are records that
+Define the IP address for particular
+host name if you're adding or modifying
+an a record that address record is used
+for IP version 4 addresses if you're
+modifying a quad a record that record is
+being used for IP version 6 addresses to
+be able to see what this might look like
+in a configuration file I have a record
+here for my web server www. professor
+this is an internet address or IP
+version for address and the a specifies
+that this is an address record and the
+other part of this record shows it to be
+16259 2461 164 that is the IP address
+that I would like return to an in user
+if they request it for
+www.professormesser.com so if someone
+sends a request to a DS server and asks
+what's the IP address of
+www.professormesser.com this record is
+accessed and it provides the answer of
+16259
+24664 if you're not editing a DNS serers
+text based configuration file then you
+might be adding a record through the
+web-based front end like I do I'm adding
+an a record the name of the host is www
+the IP address is 16259 2461 164 and the
+time to live which is how long someone
+will remember this IP address is set to
+15 minutes after after 15 minutes this
+record will time out from a user's
+workstation and they will need to
+request that IP address to continue
+communicating to
+www.professormesser.com this allows me
+to make changes to this IP address at
+any time and I know that all of those
+changes will eventually be rolled out
+across the internet in no more than 15
+minutes the process for adding a quad a
+record is very similar we specify a quad
+a record the name of the device the IP
+version 6 address that we'd like to use
+and the time to live that we would like
+associated with that
+record there may be times when a
+particular server is referenced using
+different names for example you might
+have one server that's used as a web
+server that might also be your DNS
+server it might also be an ntp server
+and it also might be a mail server but
+instead of referencing that server with
+a single name we can use different names
+to associate the different resources for
+example if you have a server called
+mail. example.com
+you might also want to use canonical
+names or cames for that server for chat
+FTP and www this means every time
+somebody references chat. example.com
+ftp.com or
+www.example.com they're all really
+communicating to a single server called
+mail. example.com this makes it very
+easy to administer if you ever need to
+change the IP address of mail.
+example.com you simply change the a
+record for mail. example.com and all of
+the canonical records can stay exactly
+the
+same one of the most critical records on
+any DNS server has got to be the MX
+records this stands for the mail
+exchanger records and these make sure
+that you're able to both send and
+receive email messages from your domain
+the MX record itself is relatively
+straightforward it starts with an in in
+for the internet MX stands for the mail
+exchanger record and then you simply
+have the name of the mail server in this
+case it's mail. example.com when other
+mail servers need to send an email
+message to James professormesser.com
+they reference my mail server to see
+where the MX record is determine the
+name of the mail server then perform
+another lookup to determine the address
+record for that mail server and now they
+know exactly what IP address they should
+be sending that email to in this
+particular case that remote email server
+would reference our DNS they would see
+that there is an MX record specifying
+mail. example.com then they would look
+at the address records and see that
+mail. example.com is
+12324 41 each domain has its own set of
+MX records here's another MX record I
+use for a different domain name this is
+one that I use through this web-based
+front end the name of the host is mail
+and the target name is mail. hover.com
+doc. hosted email
+by using this front end I'm able to make
+changes to that MX record to be able to
+send mail exactly where I need it to go
+if you're configuring your MX record
+through a web-based front end then it's
+the same editing process we've already
+used where we would choose the name of
+the record specify the host name the
+target name and the time to
+live so far we've talked a lot about IP
+addresses fully qualified domain names
+and the resolution between those two in
+our DNS server but we can also use our
+DNS server to store important
+information that we would like others to
+be able to access we refer to these
+records as text records or txt records
+these are human readable text records
+that anyone could reference from our DNS
+server and we'll look at an example of
+those in just a moment sometimes you'll
+see these DNS records being used for
+verification often you'll be configuring
+an email setting and the email
+configuration needs to ensure that you
+have control of your DNS server and to
+be able to verify that you add a special
+text record into your DNS that they can
+then access from their site and there
+are a number of text records that we use
+to minimize the instance of spam and
+we'll talk more about those specific
+text messages as well if you wanted to
+view the text records available on my
+DNS server you can use the Dig command
+with a dig professormesser.com and then
+specify txt it will then show you all of
+the different text messages that are
+currently configured on my DNS server in
+this example there are two text records
+that appear one for a stripe
+verification and another one that's
+being used as an SPF record and we'll
+look more at SPF records in just a
+moment you can also use the NS lookup
+command to view these text records let's
+look at all of the text records
+associated with the Google DNS we would
+use NS lookup dype equals txt and then
+google.com all of the results that you
+see here are the text records associated
+with the google.com domain name I
+mentioned earlier that we often use
+these text records to be able to
+minimize the amount of spam that someone
+might receive or to be able to verify
+that the email messages that have been
+sent really did come from your domain
+one of the ways we do this is with a
+dcam record a domain Keys identified
+mail record if you were to look at the
+text records on a DNS server you may see
+one text record that specifies D equal D
+kimim that is a domain Keys identified
+mail record in the DNS server itself
+you'll find a public key associated with
+this record on your email server is the
+associated private key of this key pair
+all of the outgoing messages from The
+Professor Messer website are digitally
+signed with my private key when another
+mail server receives an email that I
+have sent it sees that that message has
+been digitally signed it then can refer
+refer to my public DNS server to
+retrieve the public key and then verify
+that the digital signature is indeed
+valid this means the recipient knows
+that that message really was sent from
+my official email server if you were to
+look at the configuration on a webbased
+front end it looks very similar with the
+text based host name which is usually
+provided by your email server and then
+you can find the actual content which is
+the public key that you would put into
+that message this can also be config
+from a web-based front end by adding the
+dkim parameters as the host name and
+then in the text part of the field you
+would add the public key as that
+structured content and in this case I'm
+specifying a 15-minute time to
+live it's very common for an
+organization to send email from many
+different resources there might be a
+private internal email server that's
+being used for outgoing mail there might
+also be a third party that's used to
+send bulk email messages perhaps once a
+day or once a week and there needs to be
+a way that everyone can trust that all
+of those different email servers are
+legitimate and have been configured
+specifically to send messages on my
+behalf the way that we would provide
+that information is through a text
+record that contains sender policy
+framework or SPF information this SPF
+record allows us to put all of the email
+servers that we use this means if your
+email server receives a message from
+professormesser.com
+it can look at that message to see what
+the origination server was and then
+verify that that origination server is
+listed in our list of SPF allowed hosts
+if you receive a message from
+professor.com and the origination email
+server is not in this list then you've
+probably received a message from a third
+party that is not associated with our
+domain and adding a text record for SPF
+is very similar to adding any other type
+of text record we would specify the
+record type as txt in the case of an SPF
+record the host name would be all hosts
+or the at sign and the content is listed
+here with the appropriate outgoing email
+server
+name this means any email server that is
+receiving a message can perform a number
+of different checks for the validity of
+that message it can perform an SPF check
+to confirm that it really did come from
+a trusted server and it can check the
+digital signature using the public key
+located in the dkim text record but what
+if one or both of these tests is invalid
+what if this message did not originate
+from a trusted email server for that
+domain and what if it did not have a
+valid digital signature in that case the
+receiver of that email message needs to
+make a decision on what to do with that
+email is this email thrown out
+completely is the email allowed to
+continue through to the in user or is it
+placed in a Spam or quarantine folder by
+default it would be nice if I could tell
+the receiving server that if you receive
+any messages from me that don't validate
+with a proper mail server or they don't
+validate with a proper digital signature
+that those mail messages should be
+dropped and not sent to the user or I
+might have a different policy that says
+Don't remove that particular email
+message but send it into the spam folder
+and let the user make a decision on
+whether that is a legitimate email or
+not the way that we're able to let that
+recipient of the email message know our
+policy is through the use of a DeMark or
+domain-based message authentication
+reporting and conformance record this is
+a text record that allows us the domain
+owner to determine what happens with
+messages that are identified as spam but
+have our domain associated with them
+third parties can look at this record on
+our DNS server and see that we would
+either like to allow all messages to be
+accepted send those messages to a spam
+folder or simply reject the email
+completely we can also include an email
+address with that DeMark record so that
+the disposition of that particular
+message is sent to a central reporting
+tool that means that we can create a
+report showing how many of our email
+messages got through and how many email
+messages were identified as spam here's
+an example of a text record that
+contains the DeMark information in this
+particular case we're telling anyone
+that receives a message that did not
+validate properly to put that message
+into their quarantine folder or spam
+folder and take the results of that
+particular disposition and send it to
+the email address listed here to be able
+to compile it into a larger report later
+on

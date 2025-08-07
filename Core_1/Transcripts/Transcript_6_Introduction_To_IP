@@ -1,0 +1,483 @@
+this video is introduction to IP and
+although it does not have a direct
+correlation back to the exam objectives
+everything that's in domain 2 or the
+networking domain tends to build on the
+information that we provide in this
+video if you're unfamiliar with some of
+the details of networking and especially
+of IP I highly recommend you watch this
+video as a primer for the videos that
+are to follow our networks are designed
+to move information from one device to
+another device and there is a lot of
+information that goes across our modern
+networks we usually refer to these
+networks as Ethernet networks wireless
+networks DSL networks and other types
+and from IP's perspective it really
+doesn't matter what methods you're using
+for the transportation the important
+part is what's inside of those packets
+that we are sending across the network
+in this video we'll talk about the
+network as a series of highways or roads
+which means that IP or the internet
+protocol is going to be the truck that
+is driving across that road we're going
+to put information into that truck send
+that IP truck across the network and
+we're going to unpack that truck on the
+other side if we were to look inside the
+truck we would see a lot of information
+there is a box inside of the truck and
+we refer to that box as holding TCP or
+UDP information we'll learn more about
+TCP and UDP later on in this video and
+of course just like boxes that you might
+use to move inside of these TCP or UDP
+boxes is information that is important
+for us to get from one place to another
+you can see that we start to nest
+information within another in the world
+of networking we refer to this as
+encapsulation and decapsulation here's a
+basic diagram of us sending information
+to a web server on one side is our
+client or laptop computer and on the
+other side is the web server itself in
+this particular example we're sending
+this information across an Ethernet
+network and all of the information
+that's being sent across the network is
+the Ethernet payload also included with
+this Ethernet payload is information at
+the beginning of this payload that is a
+header and information at the end that's
+a trailer this allows us to know exactly
+where the data starts and where the data
+ends of course there's more information
+within this Ethernet payload and if we
+were to look a little bit closer at that
+payload we would see that there's a
+specific kind of data contained within
+that payload in this particular example
+we're carrying IP traffic so there is an
+IP payload and an IP header within that
+same Ethernet frame and as you probably
+already expected within this IP payload
+we have even more detail that consists
+of a TCP payload in this particular
+example and that TCP payload also
+consists of a TCP header and we can
+continue to break this down since we
+know that this is web traffic we know
+that within that TCP payload is HTTP or
+hypertext transfer protocol data which
+holds all of that web server
+communication so as you can see this
+Ethernet frame has within it IP traffic
+TCP information and HTTP information and
+different protocols may have even more
+layers of information that we could
+drill into to see exactly what's being
+sent between these two devices
+the internet protocol or IP is one of
+the most popular protocols that you'll
+find but you'll also notice that within
+that IP we commonly find TCP and UDP tcp
+and UDP are very similar protocols that
+are used to transport information but
+there are some interesting
+characteristics that are unique to each
+and in this video we'll look at what
+some of those unique characteristics
+might be if you're talking to a network
+professional or someone taking their
+network plus certification they'll often
+refer to TCP or UDP as an OSI layer 4
+protocol for the purposes of the A+ the
+OSI model is not important for us to
+know but you will see that particular
+term show up when you're reading through
+different books or referencing different
+materials from the purposes of a
+networking perspective it's important to
+know that TCP and UDP allow us to
+communicate across multiple devices all
+simultaneously and send information that
+might be very different than each other
+we refer to this as multipplexing this
+allows us to send different types of
+traffic across the network
+simultaneously and have all of that
+information properly received on the
+other side
+let's look with a little more detail
+into TCP or the transmission control
+protocol this is a protocol that we
+refer to as
+connectionoriented that means there is a
+formal process to set up a conversation
+with the device and a formal process to
+end that conversation you can think of
+this as making a phone call you would
+put in a phone number you would hear the
+phone ring on the other side on the
+other side the person might say hello
+and you would say hello back to them and
+then you can proceed with your
+conversation at the end of that call you
+would say "It was good talking to you
+goodbye." The other person would say
+"Goodbye," and you hang up this is very
+similar to the process with TCP where
+there is a formal connection setup and a
+formal connection tearown you'll
+sometimes see TCP referred to as
+reliable delivery that means that we are
+able to know that the information that
+we've sent to another device really has
+been received that's because TCP
+includes an acknowledgement process so
+TCP sends the data and the person
+receiving the data will send back an
+acknowledgement so that both sides of
+the conversation know that everything
+was received properly if any of the
+information sent by the sender is
+damaged or corrupted in the transport
+process the receiving station can send a
+message back to the sending device
+telling it that something did not work
+properly and they need to resend that
+data to be able to receive it properly
+this also allows the sender and the
+receiver to manage how much data is
+being sent at any particular time we
+refer to this as flow control and that
+means the receiving device can tell the
+sender to speed up the data or slow down
+the data depending on how much
+information it's able to receive at any
+particular time it's this constant
+sending of data and an acknowledgement
+of the data that provides that reliable
+delivery and enables all of those TCP
+specific functions
+but there are some protocols that don't
+need that very detailed level of
+reliability and the overhead that's
+associated with TCP that's why we
+created UDP or the user datagramgram
+protocol we have a connectionoriented
+protocol with TCP and with UDP we are
+connectionless there's no formal process
+to start the communications flow and
+there's no formal tearown process to end
+the communication we refer to that as an
+unreliable delivery those terms are
+referring to the fact that there's no
+way to know if the data really was
+received on the other side because there
+are no acknowledgements coming back to
+the sender since there's no
+acknowledgement being sent by the
+receiving device we don't have any way
+to recover from any errors and there's
+no way to perform any type of
+retransmission and since the sending
+station has no idea if everything really
+was received properly on the other side
+there's no way to set any type of flow
+control the device that's receiving all
+of this data has no way to send back any
+type of messages saying that they should
+speed up or slow down the data transfer
+process given that explanation of UDP
+you might be thinking why would any
+application want to use UDP one
+advantage of UDP is that there's very
+little overhead you don't have to set up
+any formal communication you can simply
+send data and you have a best effort to
+get that data to the other side a good
+example of an application that works
+exactly like this is one for real-time
+communication applications that are
+voice over IP related or send video
+across the network are all in real time
+if information is lost along the way we
+can't stop our conversation rewind what
+we were talking about and then replay
+that through the same connection once we
+lose that data we've lost that moment in
+time and there's no way to rewind time
+to go back to where we were for that
+reason Voiceover IP and any real-time
+communication would prefer to use UDP
+since it has the least amount of
+overhead and it doesn't have to worry
+about rescending traffic that may have
+been lost there are other protocols that
+work with UDP that perform a similar
+function where they need low overhead
+and aren't concerned if the data is
+going to get to the other side or not if
+there's any problems in that
+communication it will simply perform the
+process again from the application's
+perspective a good example of these
+connectionless protocols would be DHCP
+or the dynamic host configuration
+protocol that we commonly use to
+automatically assign IP addresses on all
+of the devices on our networks another
+good example is TFTP or the trivial file
+transfer protocol which often sends very
+small amounts of data across the network
+and doesn't require any particular
+overhead or retransmission capability
+fortunately even though UDP doesn't
+provide any way to resend the data the
+application can provide that same
+functionality so instead of relying on
+UDP as the retransmission method the
+application itself will keep track of
+everything that is sent back and forth
+and the application will decide if it
+ever needs to resend any traffic across
+the network this requires the
+application itself to be able to manage
+that process and some applications like
+voiceover IP apps might not do anything
+if data is lost if information doesn't
+make it through then it will simply
+continue sending the voiceover IP
+traffic and if the users didn't receive
+information they'll simply ask someone
+to repeat what they just said some
+applications though are very particular
+about making sure the data is properly
+received on the other side applications
+such as HTTPS which is the hypertext
+transfer protocol secure commonly used
+for our web server communication or
+something like SSH for secure shell
+which is our terminal communication is
+something that does use TCP and will
+resend data automatically using that TCP
+protocol tcp is able to confirm that
+data was received by receiving
+acknowledgements from the receiving
+station very much like you would do with
+a return receipt this means the
+application doesn't have to worry if
+information was received or anything
+goes missing because that entire process
+of maintaining the data flow is managed
+by
+TCP as we mentioned earlier this TCP or
+UDP data is being transported across the
+network using IP or the internet
+protocol and again IP is our truck tcp
+and UDP are the boxes on the truck and
+the network itself is the road that we
+drive on if you're working with a mover
+to help move your house then you know
+that the movers are going to load up
+your truck with all of those boxes and
+they're going to move that truck from
+one location to another so they need the
+address of where they're going to pick
+up this information and they need the
+address of where they're going to take
+it in the world of networking we refer
+to these addresses as IP addresses and
+every computer on your network has an IP
+address just like every house on your
+block has a street address when we send
+information to a web server we are
+sending that information to a specific
+IP address these boxes of TCP or UDP
+data will arrive at that IP address but
+then we have to decide where that
+particular box is going to go just as
+your house has many different rooms you
+have servers that are running many
+different services your web server might
+also be a DNS or domain name server it
+could also be a file server and it could
+provide voiceover IP functions when
+information is received by that server
+it now needs to decide what room is
+going to receive this box so that we can
+properly process that data the operating
+system is sitting outside of your house
+and it's looking at all of the boxes
+that are coming in from the moving truck
+each box has the name of a room written
+on it and it knows that that box should
+go to the bedroom another box perhaps
+goes to the living room there might be a
+third box that goes to the kitchen tcp
+and UDP work in a similar way but
+instead of writing the name of the
+service or the room on the box that's
+being received instead we're using
+something called a port number so
+instead of having a room name you
+instead have different services and each
+service is assigned a particular number
+these port numbers allow the incoming
+data to know exactly where that
+information should be sent so that it's
+processed properly by the appropriate
+application this means when information
+is being sent from one device to another
+there are usually at least three
+different types of information that are
+important there is the IP address of the
+server there is the TCP or UDP protocol
+that is being used and then there is a
+port number and from the server's
+perspective it would be a port number
+associated with that application the
+sending device also has an IP address
+it's sending information via TCP or UDP
+and there's a port number also used by
+the client which is useful for sending
+information back to the client once the
+server has processed that data as you
+start looking at different services and
+memorizing different port numbers you'll
+notice that certain applications always
+tend to use the same port numbers we
+refer to these as non-ephemereral ports
+or permanent port numbers usually these
+port numbers are between port zero and
+port 1023 but it could use any port
+number available to be able to define
+what port number is associated with an
+application if you were to look at the
+configuration of a service that's
+running on a device such as a web server
+an email server or a file server you'll
+see that a port number is also
+associated with that particular service
+this allows anyone who's communicating
+to that service to always send
+information with a port number that will
+be recognized by that service to be able
+to communicate to that service our
+client needs to have not only an IP
+address and TCP or UDP protocol but it
+needs a client port number client port
+numbers can be any number usually
+between 124 and
+65,535 because these port numbers are
+simply used temporarily we refer to them
+as ephemeral ports they are used for a
+single communication and once the
+communication to the server is over we
+close that connection and we don't use
+that port number any longer if we need
+to communicate to that server again we
+choose a new random port number and use
+that as our client port number so now we
+know that a TCP or UDP port number can
+be any value between 0 and
+65,535 if we're communicating to a
+server that server is probably going to
+use a non-ephemeral port number but that
+may not always be the case fortunately
+most applications will use a port number
+and it will always be that port number
+running on that service also keep in
+mind that these port numbers sound like
+they could be used for some type of
+security process but in reality they're
+simply a number that's used for
+reference they're not designed to be a
+security mechanism and it's very easy to
+find a port number on a service even if
+someone may have changed the port number
+to something else in fact we often refer
+to these port numbers on a server as a
+well-known port number because you need
+to know the port number in order to
+communicate to that particular service
+also keep in mind that TCP port numbers
+have a range between 0 and
+65,535 and UDP port numbers also have a
+range between 0 and
+65,535 but a TCP port 80 is not the same
+thing as a UDP port 80 these are
+different protocols that have a similar
+numbering scheme for their port numbers
+but the port numbers are unique to each
+individual protocol here's an example of
+a client and a server having multiple
+forms of communication occurring
+simultaneously across the network and
+using different port numbers in order to
+do that in this example we have a server
+and on this server are three different
+services there's a web server running at
+TCP port 80 there's a voiceover IP
+server running at UDP port 504 and
+there's an email server using TCP port
+143 that means we'll have three
+different types of communication going
+between our client and our server notice
+that our client has an IP address of
+10.0.0.1 and our server has an IP
+address of
+10.0.0.2 you can see that we're sending
+information across an Ethernet network
+because we have an Ethernet header and
+an Ethernet trailer inside of each of
+these communications is IP because IP is
+the protocol that we use the most for
+communication but notice that inside of
+these IP packets some of these have TCP
+traffic others have UDP traffic and you
+can see that the TCP traffic may be HTTP
+data using port 80 it might be voiceover
+IP data using UDP port 504 or email data
+using port 143 if we were to look at a
+protocol decode of this information we
+get a lot more detail about the
+communication that's occurring we know
+that we have a source IP of 10.0.0 0.1
+and a destination IP of
+10.0.0.2 that matches the IP address of
+the client and the IP address of the
+server each of these communication flows
+have the same source IP and destination
+IP notice that there are differences
+though inside of those IP packets you
+can see in each of these examples that
+the destination port is the port that we
+listed above or the well-known port for
+that particular application but notice
+that the source port is using a random
+number and each of these traffic flows
+is using a very different source port
+that's because those are ephemeral ports
+they're temporary ports that we're
+simply using to be able to send this
+information to the server and receive
+information back if this client needed
+to send additional traffic flows to this
+server then it would choose another
+random port number and send another flow
+of traffic that had some application
+data inside of it this is the process
+that's occurring for every device on
+your network to be able to send traffic
+from one place to another whether that's
+on a local server or across the internet
+the process is exactly the same all
+thanks to IP TCP and UDP
+

@@ -1,0 +1,220 @@
+if you have an organization and you need
+to manage all of the mobile phones used
+in the organization then you need a
+mobile device manager or MDM this allows
+you to manage devices that may be owned
+by your company or devices that are
+personally owned this would be a b yod
+where someone is bringing their own
+device to use at work when that occurs
+you need some way to be able to
+centrally manage all of your mobile
+devices from one place this is a
+relatively specialized function and so
+you need specialized software to be able
+to do this an MDM allows you as the
+system administrator to set certain
+rules and parameters on how these mobile
+devices are used so you could set
+policies on which applications are
+allowed or not allowed you can configure
+or disable functionality of things like
+your camera or GPS and effectively
+control almost every aspect of these
+mobile devices this also allows you as a
+company to set up a partitioned area on
+someone's personal phone for use by the
+organization this allows your users to
+have their own private data that is
+protected and private to them and have a
+different part of the phone that is
+partitioned off just for corporate data
+and from a security perspective you can
+require the use of certain security
+policies for example you may require
+everyone in your organization to use
+screen locks and those screen locks need
+to have a personal identification number
+or other type of access in order to
+unlock that phone BYOD is a interesting
+challenge for organizations this of
+course stands for bring your own device
+you may see this also referred to as
+bring your own technology the employee
+owns the phone and since they already
+have a phone that simplifies things for
+the employee so that they don't have to
+carry around two different mobile
+devices but we need to have some way to
+protect the company data that is stored
+in that phone and to make sure that all
+the users personal information remains
+personal and private this allows you to
+configure from the mobile device manager
+what part of that device is home or
+private and what part of that device is
+used for work purposes you can also set
+different parameters for how the data is
+protected on that device and you also
+need to set policies on what happens to
+the data on that device if the phone is
+upgraded traded in or if the phone is
+lost some organizations don't allow user
+phones to be used inside of the company
+instead the company will provide the
+phones through cope this is corporate
+owned personally enabled the company
+purchases the phone they assign that
+phone to a user and then they manage
+that as a corporate device although the
+corporation does have full control of
+that device in many organizations they
+allow the user to use it as a personal
+device as well since the company is
+purchased the phone they have complete
+control over the phone and they manage
+every aspect of how that particular
+device managed this is very similar to
+how organizations might manage laptops
+desktops and other Computing devices the
+company determines how information is
+stored on the device what type of
+information is stored on the device or
+perhaps more importantly what happens to
+that data if the device is changed out
+or if the device is lost some
+organizations will add some flexibility
+to the process and allow the user to
+choose from a selection of devices we
+refer to that as CYO or choose your own
+device having management of all of your
+mobile devices from a central MDM policy
+screen provides a lot of flexibility and
+saves a lot of time for example you can
+configure your Corporate email settings
+on the mobile device manager that's
+pushed down to everyone's phone and so
+they don't have to make any changes at
+all to gain access to their inbox they
+simply turn on their phone and
+everything works as it should the
+security team may decide that they would
+like additional Security on these mobile
+devices since they are outside of the
+company and can be lost easily so they
+may require things like two-factor
+authentication and they can specify what
+type of multiactor authentication they
+would like and from the MDM you can
+determine what applications are allowed
+on that device if there are certain
+applications that are forbidden to be
+installed on that device and you can
+even push those applications to be
+installed
+automatically here's a view from an MDM
+console we can see that we are looking
+at a number of devices inside of the
+organization we can see the device name
+the platform that it uses we can see
+usernames associated with that phone and
+even know the email and contact
+information for the phone and if you
+need the IMI which is a unique
+identifier that's also listed in the
+mobile device manager you can drill down
+on one of those devices to get more
+information about it for example this is
+an Apple iOS device specifically an
+iPhone 13 you can see the version of I
+OS that's being used we also have
+information about the operating system
+running on that device different device
+Security Options that may be enabled or
+disabled and you can see the network
+summary that's currently in use for that
+particular unit if we click over on the
+restrictions tab you can see all of the
+settings that you can enable or disable
+since you are the manager of this
+particular phone you can enable or
+disable the camera FaceTime you can
+change if voice dialing is enabled or
+disabled if you want to get rid of Siri
+you can turn that off inside of the MDM
+and different Security Options printing
+options and application options are also
+configured from this restriction
+screen the MDM also allows you to
+configure how this device will be
+synchronized over the air since these
+devices are rarely plugged into a
+central facility we need some way to
+back up the data that's being stored on
+these mobile phones some of these
+settings are already preconfigured for
+example your telephone information and
+message mesages is something that we
+know will always be configured and set
+up on these devices but different
+organizations might use different types
+of email one organization might use
+Gmail another organization might use
+Microsoft Outlook each organization does
+things a different way with different
+settings and so the MDM allows you to
+have all of those configured in one
+central place it also allows you to turn
+on how the data will be synchronized you
+can specify whether data will be
+synchronized over the Wi-Fi network only
+or if it will use the cellular network
+as well this is also important for
+understanding how this data will also be
+restored if this device fails is damaged
+or you need to replace it you can also
+get into the granular settings of the
+synchronization for example you can
+specify what specific types of data will
+be synchronized will we synchronize
+calendar settings will we synchronize
+contact details and we may want to even
+change how the data is going to be
+synchronized at different times of the
+day for example some organizations may
+not want to use the cellular network due
+to cost limitations maybe you can only
+synchronize this data if it's on an
+802.11 or local network fortunately most
+of our mobile devices have settings
+where we can specify how much of this
+cellular network can be used and for
+what purposes you want to check with the
+contract that you have with your
+cellular provider to see how much data
+would be allowed over this network and
+at what particular time and you as the
+the administrator could configure for
+example if automatic downloads are
+configured and if they are configured
+what size applications can be downloaded
+over the mobile
+network when you're setting up business
+applications on these devices you're
+often configuring things like Outlook
+email cloud storage and other services
+you would commonly set those up in the
+account setting of that device where you
+would need to provide a username a
+password or some other type of
+authentication Factor from there you can
+get even more granular control over
+exactly what will be synchronized and
+you can choose mail contacts calendars
+reminders notes or other settings you
+can also set this up to be different
+from other services so your
+synchronization settings for Microsoft
+Exchange might be very different than
+the synchronizations that you configure
+for Google Mail
